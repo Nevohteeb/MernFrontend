@@ -151,13 +151,16 @@ const WorkoutDetails = ({workout}) => {
           <p><strong>Created by: </strong>{workout.user_id ? getEmailCharactersBeforeAtSymbol(workout.user_id) : 'Unknown'}</p>
           <button onClick={handleNavigate}>Read More</button>
 
-          {/* Delete/Edit Buttons */}
-          <span onClick={handleEdit}>
-            <i className='fa-solid fa-pen'></i>
-          </span>
-          <span onClick={handleDelete}>
-            <i className='fa-solid fa-trash'></i>
-          </span>
+          {workout.user_id === user_id && (
+            <>
+              <span onClick={handleEdit}>
+                <i className='fa-solid fa-pen'></i>
+              </span>
+              <span onClick={handleDelete}>
+                <i className='fa-solid fa-trash'></i>
+              </span>
+            </>
+          )}
         </>
       )}
       <button
